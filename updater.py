@@ -58,8 +58,16 @@ def unzipFile(filePath, extractionDirectory):
     zipRef.close()
     pprint('Unzipped Succesfully')
 
+def updateConfig(config, latestVersion):
+    pprint('updating config with latest version')
+    config['currentVersion'] = str(latestVersion)
+    with open('config.json', 'w') as outfile:
+        json.dump(config, outfile)
+    pprint('Update Complete')
+
 config = loadConfig();
 latestVersion = checkForLatestVersion(config['currentVersion'])
 downloadElvUI(latestVersion, '')
 unzipFile('7.72.zip', config['wowPath'])
 cleanUpFiles('7.72.zip')
+updateConfig(config, latestVersion)
