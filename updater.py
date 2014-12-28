@@ -56,4 +56,4 @@ def unzipFile(filePath, extractionDirectory):
 config = loadConfig();
 latestVersion = checkForLatestVersion(config['currentVersion'])
 downloadElvUI(latestVersion, '')
-unzipFile('7.72.zip', '7,72')
+unzipFile('7.72.zip', config['wowPath'])
