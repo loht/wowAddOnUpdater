@@ -1,6 +1,7 @@
 import http.client
 import json
 from math import ceil
+import os
 from pprint import pprint
 import shutil
 import urllib.request
@@ -20,6 +21,10 @@ def checkForLatestVersion(currentVersion):
 
     pprint('Latest Version Detected: ' + str(latestVersion))
     return latestVersion
+
+def cleanUpFiles(removeMe):
+    pprint('Removing: %s' % (removeMe))
+    os.remove(removeMe)
 
 
 def constructPath(version):
@@ -57,3 +62,4 @@ config = loadConfig();
 latestVersion = checkForLatestVersion(config['currentVersion'])
 downloadElvUI(latestVersion, '')
 unzipFile('7.72.zip', config['wowPath'])
+cleanUpFiles('7.72.zip')
