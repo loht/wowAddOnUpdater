@@ -68,6 +68,6 @@ def updateConfig(config, latestVersion):
 config = loadConfig();
 latestVersion = checkForLatestVersion(config['currentVersion'])
 downloadElvUI(latestVersion, '')
-unzipFile('7.72.zip', config['wowPath'])
-cleanUpFiles('7.72.zip')
+unzipFile( str(latestVersion) + '.zip', config['wowPath'])
+cleanUpFiles(str(latestVersion) + '.zip')
 updateConfig(config, latestVersion)
